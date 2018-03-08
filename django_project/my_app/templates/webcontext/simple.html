@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="favicon.ico">
+
+<title>Theme Template for Bootstrap</title>
+
+<!-- Bootstrap core CSS -->
+<link href="{% static 'webcontext/css/bootstrap.min.css' %}"
+	rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="{% static 'webcontext/css/bootstrap-theme.min.css' %}"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="{% static 'webcontext/css/theme.css' %}" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Bootstrap theme</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li role="separator" class="divider"></li>
+							<li class="dropdown-header">Nav header</li>
+							<li><a href="#">Separated link</a></li>
+							<li><a href="#">One more separated link</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+
+	<div class="container" role="main">
+		{% comment %} if c.id|divisibleby:"2" to check is is divisible by two
+		{% endcomment %} {% if comments %}
+		<div class="page-header">
+			<h1>Comments</h1>
+		</div>
+		{% for c in comments %}
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>
+					<span class="label label-primary">{{ c.name }}</span>
+				</h1>
+			</div>
+			<div class="col-sm-9">
+				<div class="panel-body">
+					<h4>{{ c.comment }}</h4>
+				</div>
+			</div>
+			<div class="col-sm-3 text-right">
+				<h4>{{ c.date_added }}</h4>
+			</div>
+		</div>
+		{% endfor %} {% endif %}
+
+		<div class="page-header">
+			<h1>Add Comments</h1>
+		</div>
+		<form id="comment_form" method="POST">
+			<input id="id_csrf_token" type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}' />
+			<div class="form-group">
+				<input name="atrb_name" class="form-control" placeholder="Name"
+					maxlength="30" id="id_atrb_name" type="text" required>
+			</div>
+			<div class="form-group">
+				<input name="atrb_email" class="form-control" placeholder="Email"
+					maxlength="30" id="id_atrb_email" type="text" required>
+			</div>
+			<div class="form-group">
+				<textarea name="atrb_comment" cols="40" rows="10"
+					class="form-control" placeholder="Comment" style="resize: none;"
+					id="id_atrb_comment" required></textarea>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Reply</button>
+		</form>
+	</div>
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<script src="{% static 'webcontext/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript">
+		$(document).on(
+				'submit',
+				'#comment_form',
+				function(event) {
+					event.preventDefault();
+					console.log('event.preventDefault();');
+
+					$.ajax({
+						type : 'POST',
+						url : '/my_app/simple/', // /my_app/simple/
+						data : {
+							atrb_name : $('#id_atrb_name').val(),
+							atrb_email : $('#id_atrb_email').val(),
+							atrb_comment : $('#id_atrb_comment').val(),
+							csrfmiddlewaretoken : $('#id_csrf_token').val()
+						},
+						success : function() {
+			              	console.log('ok'); 
+						}
+					});
+				});
+	</script>
+</body>
+</html>
