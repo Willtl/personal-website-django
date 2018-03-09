@@ -1,0 +1,161 @@
+{% load static %} {% load random_numbers %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="favicon.ico">
+
+<title>Theme Template for Bootstrap</title>
+
+<!-- Bootstrap core CSS -->
+<link href="{% static 'webcontext/css/bootstrap.min.css' %}"
+	rel="stylesheet">
+<link href="{% static 'webcontext/css/style.css' %}" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{% url 'index' %}">Willian Tessaro
+					Lunardi </a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="{% url 'index' %}">Home</a></li>
+					<li class="active"><a href="{% url 'comment_1' %}">Comments</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li role="separator" class="divider"></li>
+							<li class="dropdown-header">Nav header</li>
+							<li><a href="#">Separated link</a></li>
+							<li><a href="#">One more separated link</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+	<div id="content_section" class="container">
+		<div id="post_section" class="jumbotron">
+			<h1>Theme example</h1>
+			<p>This is a template showcasing the optional theme stylesheet
+				included in Bootstrap. Use it as a starting point to create
+				something more unique by building on or modifying it.</p>
+		</div>
+
+		<div id="comment_section" class="row">
+			{% if comments %}
+			<div id="comments_header" class="page-header">
+				<h1>Comments</h1>
+			</div>
+			{% for c in comments %}
+			<div class="panel panel-white post panel-shadow">
+				<div class="post-heading">
+					<div class="pull-left image">
+						<img
+							src="{% static 'webcontext/images/avatar/avatar' %}-{% random_int 1 6 %}.png"
+							class="img-circle avatar">
+					</div>
+					<div class="pull-left meta">
+						<div class="title h5">
+							<a href="#"><b>{{ c.name }}</b></a> made a post.
+						</div>
+						<h6 class="text-muted time">{{ c.date_added }}</h6>
+					</div>
+				</div>
+				<div class="post-description ">
+					<p id="comment_area">{{ c.comment }}</p>
+				</div>
+			</div>
+			{% endfor %} {% endif %}
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="form_comment" class="row">
+			<div class="page-header">
+				<h1>Add Comments</h1>
+			</div>
+			<form id="comment_form" method="POST">
+				<div id="comment_form_error" class="alert alert-danger" role="alert"
+					style="display: none;">
+					<span class="glyphicon glyphicon-exclamation-sign"
+						aria-hidden="true"></span> <span id="error_message"></span>
+				</div>
+				<div id="comment_form_info" class="alert alert-warning" role="alert"
+					style="display: none;">
+					<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+					<span id="info_message"></span>
+				</div>
+				<input id="id_csrf_token" type='hidden' name='csrfmiddlewaretoken'
+					value='{{ csrf_token }}' />
+				<div class="form-group">
+					<input name="atrb_name" class="form-control" placeholder="Name"
+						maxlength="30" id="id_atrb_name" type="text" required>
+				</div>
+				<div class="form-group">
+					<input name="atrb_email" class="form-control" placeholder="Email"
+						maxlength="30" id="id_atrb_email" type="text" required>
+				</div>
+				<div class="form-group">
+					<textarea name="atrb_comment" cols="40" rows="10"
+						class="form-control" placeholder="Comment" style="resize: none;"
+						id="id_atrb_comment" required></textarea>
+				</div>
+				<button id="button_comment_form"
+					class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			</form>
+		</div>
+
+		<div class="page-header">
+			<h1>Wells</h1>
+		</div>
+		<div class="well">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Maecenas sed diam eget risus varius blandit sit amet non magna.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+				commodo cursus magna, vel scelerisque nisl consectetur et. Cras
+				mattis consectetur purus sit amet fermentum. Duis mollis, est non
+				commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem
+				nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+		</div>
+
+		<input id="page_id" type="hidden" value="{% url 'comment_1' %}">
+	</div>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<script src="{% static 'webcontext/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'webcontext/js/form_comment.js' %}"></script>
+</body>
+</html>

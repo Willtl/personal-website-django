@@ -13,8 +13,9 @@ class Comment(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField(blank=False, validators=[validate_email], default='null')
     comment = models.TextField()
+    url_name = models.TextField()
     date_added = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
-        return '<Name: {}, ID: {}>'.format(self.name, self.id)
+        return '<Name: {}, ID: {}, URL_name: {}>'.format(self.name, self.id, self.url_name)
     
