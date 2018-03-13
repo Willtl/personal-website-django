@@ -134,34 +134,20 @@
 			</form>
 		</div>
 
-		<div class="page-header">
-			<h1>Wells</h1>
-		</div>
-		<div class="well">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				Maecenas sed diam eget risus varius blandit sit amet non magna.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-				commodo cursus magna, vel scelerisque nisl consectetur et. Cras
-				mattis consectetur purus sit amet fermentum. Duis mollis, est non
-				commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem
-				nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
-		</div>
-
-		<input id="page_id" type="hidden" value="{% url 'comment' %}">
+		<input id="page_id" type="hidden" value="{% url 'code' %}">
 	</div>
 
 	<div class="container">
 		<br />
 		<div class="text-center center-block">
-
+			
 			<br /> <a href="https://github.com/Willtl"><i id="social-fb"
 				class="fa fa-github-square fa-3x social"></i></a> <a
 				href="https://lu.linkedin.com/in/williantl"><i id="social-tw"
 				class="fa fa-linkedin-square fa-3x social"></i></a> <a
 				href="mailto:willian.tessarolunardi@uni.lu"><i id="social-em"
 				class="fa fa-envelope-square fa-3x social"></i></a>
-			<p class="txt-railway">Copyright © {% now "Y" %}, Design Willian
-				Tessaro Lunardi</p>
+			<p class="txt-railway">Copyright © {% now "Y" %}, Design Willian Tessaro Lunardi </p>
 		</div>
 		<br />
 	</div>
@@ -171,7 +157,11 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src='https://www.google.com/recaptcha/api.js'></script>
-	<script src="{% static 'webcontext/js/bootstrap.min.js' %}"></script>
+	<script
+		src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+	<!-- <script src="{% static 'webcontext/js/bootstrap.min.js' %}"></script>  -->
 	<script src="{% static 'webcontext/js/form_comment.js' %}"></script>
+
 </body>
 </html>
