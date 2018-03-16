@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+</head>
+
+<body>
+	<!-- Fixed navbar -->
+	<div class="container">
+		<nav class="navbar navbar-default navbar-expand-sm navbar-light"
+			role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="{% url 'index' %}">Willian
+						Tessaro Lunardi</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li {% if page_name == 'home' %}class="nav-item active" {% else %} class="nav-item" {% endif %}><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+						<li {% if page_name == 'publications' %}class="nav-item active" {% else %} class="nav-item" {% endif %}><a class="nav-link" href="{% url 'publications' %}">Publications</a></li>
+						<li {% if page_name == 'research' %}class="nav-item active" {% else %} class="nav-item" {% endif %}><a class="nav-link" href="{% url 'research' %}">Research</a></li>
+						<li {% if page_name == 'code' %}class="nav-item active" {% else %} class="nav-item" {% endif %}><a class="nav-link" href="{% url 'code' %}">Code</a></li>
+						<li {% if page_name == 'comment' %}class="nav-item active" {% else %} class="nav-item" {% endif %}><a class="nav-link" href="{% url 'comment' %}">Comments</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</nav>
+	</div>
+</body>
+</html>

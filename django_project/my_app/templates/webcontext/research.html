@@ -13,12 +13,12 @@
 <meta name="author" content="">
 <link rel="icon" href="favicon.ico">
 
-<title>{% get_page_title %} - {{ page_name }}</title>
+<title>{% get_page_title %}</title>
 
 <!-- Bootstrap core CSS -->
 <link href="{% static 'webcontext/css/bootstrap.min.css' %}"
 	rel="stylesheet">
-<link href="{% static 'webcontext/css/style.css' %}" rel="stylesheet">
+<link href="{% static 'webcontext/css/style.css' %}" rel="stylesheet"> 
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -102,20 +102,7 @@
 			</form>
 		</div>
 
-		<div class="page-header">
-			<h1>Wells</h1>
-		</div>
-		<div class="well">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				Maecenas sed diam eget risus varius blandit sit amet non magna.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-				commodo cursus magna, vel scelerisque nisl consectetur et. Cras
-				mattis consectetur purus sit amet fermentum. Duis mollis, est non
-				commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem
-				nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
-		</div>
-
-		<input id="page_id" type="hidden" value="{% url 'comment' %}">
+		<input id="page_id" type="hidden" value="{% url 'research' %}">
 	</div>
 
 	{% include "webcontext/html_parts/footer.html" %}
@@ -126,7 +113,10 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src='https://www.google.com/recaptcha/api.js'></script>
-	<script src="{% static 'webcontext/js/bootstrap.min.js' %}"></script>
+	<script
+		src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+	<!-- <script src="{% static 'webcontext/js/bootstrap.min.js' %}"></script>  -->
 	<script src="{% static 'webcontext/js/form_comment.js' %}"></script>
 </body>
 </html>
