@@ -1,9 +1,9 @@
 var page_id = $('#page_id').val();
 
 $(document).ready(function() {
-	$('html, body').animate({
-		scrollTop : 0
-	}, 500);
+	//$('html, body').animate({
+	//	scrollTop : 0
+	//}, 0, 'swing');
 });
 
 $(document).on('submit', '#comment_form', function(e) {

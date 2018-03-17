@@ -16,7 +16,7 @@
 <!-- Bootstrap core CSS -->
 <link href="{% static 'webcontext/css/bootstrap.min.css' %}"
 	rel="stylesheet">
-<link href="{% static 'webcontext/css/style.css' %}" rel="stylesheet"> 
+<link href="{% static 'webcontext/css/style.css' %}" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -70,6 +70,7 @@
 				<h1>Add Comments</h1>
 			</div>
 			<form id="comment_form" method="POST">
+				<input id="page_id" type="hidden" value="{{ current_path }}">
 				<div id="comment_form_error" class="alert alert-danger" role="alert"
 					style="display: none;">
 					<span class="glyphicon glyphicon-exclamation-sign"
@@ -99,12 +100,10 @@
 					class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
 			</form>
 		</div>
-
-		<input id="page_id" type="hidden" value="{% url 'publications' %}">
 	</div>
 
 	{% include "webcontext/html_parts/footer.html" %}
-	
+
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
