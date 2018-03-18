@@ -7,12 +7,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="Willian Tessaro Lunardi" />
-<meta name="description" content="Personal webpage of Willian Tessaro Lunardi" />
-<meta name="keywords" content="optimization,combinatorial,student,university,luxembourg,website,graduate,willian tessaro lunardi," />
+<meta name="description"
+	content="Personal webpage of Willian Tessaro Lunardi" />
+<meta name="keywords"
+	content="optimization,combinatorial,student,university,luxembourg,website,graduate,willian tessaro lunardi," />
 
-<title>{% get_page_title %}</title> 
+<title>{% get_page_title %}</title>
 
-<link rel="shortcut icon" type="image/png" href="{% static 'webcontext/images/favicon.png' %}"/>
+<link rel="shortcut icon" type="image/png"
+	href="{% static 'webcontext/images/favicon.png' %}" />
 <link href="{% static 'webcontext/css/boot4/bootstrap.css' %}"
 	rel="stylesheet">
 <link href="{% static 'webcontext/css/style.css' %}" rel="stylesheet">
@@ -28,79 +31,24 @@
 	{% include "webcontext/html_parts/nav.html" %}
 
 	<div id="content_section" class="container">
-		<div id="post_section" class="jumbotron">
-			<h3>Theme example</h3>
-			<p>This is a template showcasing the optional theme stylesheet
-				included in Bootstrap. Use it as a starting point to create
-				something more unique by building on or modifying it.</p>
+		<div class="py-5 text-center">
+			<img class="d-block mx-auto mb-4"
+				src="{% static 'webcontext/images/logo_0.png' %}" alt="" width="96"
+				height="96">
+			<h2 style="margin-top: 0px;">Checkout form</h2>
+			<p class="lead">Below is an example form built entirely with
+				Bootstrap's form controls. Each required form group has a validation
+				state that can be triggered by attempting to submit the form without
+				completing it.</p>
 		</div>
 
-		<div id="comment_section" class="row">
-			{% if comments %}
-			<div id="comments_header" class="page-header">
-				<h3>Comments</h3>
-			</div>
-			{% for c in comments %}
-			<div class="panel panel-white post panel-shadow">
-				<div class="post-heading">
-					<div class="pull-left image">
-						<img
-							src="{% static 'webcontext/images/avatar/avatar' %}-{% random_int 1 6 %}.png"
-							class="img-circle avatar">
-					</div>
-					<div class="pull-left meta">
-						<div class="title h5">
-							<a href="#"><b>{{ c.name }}</b></a> made a post.
-						</div>
-						<h6 class="text-muted time">{{ c.date_added }}</h6>
-					</div>
-				</div>
-				<div class="post-description ">
-					<p id="comment_area">{{ c.comment }}</p>
-				</div>
-			</div>
-			{% endfor %} {% endif %}
-		</div>
+		{% include "webcontext/html_parts/comment_area.html" %}
 	</div>
 
 	<div class="container">
-		<div id="form_comment" class="row">
-			<div class="page-header">
-				<h3>Add Comments</h3>
-			</div>
-			<form id="comment_form" method="POST">
-				<input id="page_id" type="hidden" value="{{ current_path }}">
-				<div id="comment_form_error" class="alert alert-danger" role="alert"
-					style="display: none;">
-					<span class="glyphicon glyphicon-exclamation-sign"
-						aria-hidden="true"></span> <span id="error_message"></span>
-				</div>
-				<div id="comment_form_info" class="alert alert-warning" role="alert"
-					style="display: none;">
-					<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-					<span id="info_message"></span>
-				</div>
-				<input id="id_csrf_token" type='hidden' name='csrfmiddlewaretoken'
-					value='{{ csrf_token }}' />
-				<div class="form-group">
-					<input name="atrb_name" class="form-control" placeholder="Name"
-						maxlength="30" id="id_atrb_name" type="text" required>
-				</div>
-				<div class="form-group">
-					<input name="atrb_email" class="form-control" placeholder="Email"
-						maxlength="30" id="id_atrb_email" type="text" required>
-				</div>
-				<div class="form-group">
-					<textarea name="atrb_comment" cols="40" rows="10"
-						class="form-control" placeholder="Comment" style="resize: none;"
-						id="id_atrb_comment" required></textarea>
-				</div>
-				<button id="button_comment_form"
-					class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-			</form>
-		</div>
+		<input id="page_id" type="hidden" value="{{ current_path }}">
+		{% include "webcontext/html_parts/comment_form.html" %}
 	</div>
-
 	{% include "webcontext/html_parts/footer.html" %}
 
 	<!-- Bootstrap core JavaScript
@@ -111,7 +59,7 @@
 	<!-- <script
 		src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
 	<script src="{% static 'webcontext/js/bootstrap.min.js' %}"></script>
-	<script src="{% static 'webcontext/js/form_comment.js' %}"></script>
 	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<script src="{% static 'webcontext/js/form_comment.js' %}"></script>
 </body>
 </html>

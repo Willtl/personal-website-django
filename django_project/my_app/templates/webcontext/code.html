@@ -37,18 +37,22 @@
 				src="{% static 'webcontext/images/logo_0.png' %}" alt="" width="96"
 				height="96">
 			<h2 style="margin-top: 0px;">Checkout form</h2>
+			<hr
+						style="max-width: 50px; border-width: 3px; border-color: #f05f40;"
+						class="my-4">
 			<p class="lead">Below is an example form built entirely with
 				Bootstrap's form controls. Each required form group has a validation
 				state that can be triggered by attempting to submit the form without
 				completing it.</p>
-		</div> 
+		</div>
 
 		{% include "webcontext/html_parts/comment_area.html" %}
 	</div>
-	
-	<input id="page_id" type="hidden" value="{{ current_path }}">	
-	{% include "webcontext/html_parts/comment_form.html" %}
-	
+
+	<div class="container">
+		<input id="page_id" type="hidden" value="{{ current_path }}">
+		{% include "webcontext/html_parts/comment_form.html" %}
+	</div>
 	{% include "webcontext/html_parts/footer.html" %}
 
 	<!-- Bootstrap core JavaScript

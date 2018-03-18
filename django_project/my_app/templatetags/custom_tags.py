@@ -3,7 +3,21 @@ from django.urls.base import resolve
 
 register = template.Library()
 
+name = 'Willian Tessaro Lunardi'
+email = 'willian.tessarolunardi@uni.lu'
+
+
 @register.simple_tag
 def get_page_title():
-    title = 'Willian Tessaro Lunardi'
-    return title 
+    return name 
+
+
+@register.simple_tag
+def get_captcha_key():
+    key = '6LeZZU0UAAAAAICQglPp7bgLsM50k9I1RHvvMzWZ'
+    return key 
+
+
+@register.simple_tag
+def get_email(): 
+    return email 

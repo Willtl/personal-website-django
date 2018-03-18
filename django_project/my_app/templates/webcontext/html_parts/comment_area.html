@@ -1,31 +1,30 @@
 {% load static %} {% load random_numbers %}
 <meta charset="utf-8">
 
-<div class="container">
-	<div id="comment_section">
-		{% if comments %}
-		<div id="comments_header" class="page-header">
-			<h3>Comments</h3>
-		</div>
-		{% for c in comments %}
-		<div class="panel panel-white post panel-shadow">
-			<div class="post-heading">
-				<div class="pull-left image">
-					<img
-						src="{% static 'webcontext/images/avatar/avatar' %}-{% random_int 1 6 %}.png"
-						class="img-circle avatar">
-				</div>
-				<div class="pull-left meta">
-					<div class="title h6">
-						<a href="#"><b>{{ c.name }}</b></a> made a post.
-					</div>
-					<h6 class="text-muted time">{{ c.date_added }}</h6>
-				</div>
-			</div>
-			<div class="post-description ">
-				<p id="comment_area">{{ c.comment }}</p>
-			</div>
-		</div>
-		{% endfor %} {% endif %}
-	</div>
+{% if comments %}
+<div id="comments_header" class="page-header">
+	<h4>Comments</h4>
 </div>
+<div id="comment_section">
+	{% for c in comments %}
+	<div class="panel panel-white post panel-shadow">
+		<div class="post-heading">
+			<div class="pull-left image">
+				<img
+					src="{% static 'webcontext/images/avatar/avatar' %}-{% random_int 1 6 %}.png"
+					class="img-circle avatar">
+			</div>
+			<div class="pull-left meta">
+				<div class="title h6">
+					<a href="#"><b>{{ c.name }}</b></a> made a post.
+				</div>
+				<h6 class="text-muted time">{{ c.date_added }}</h6>
+			</div>
+		</div>
+		<div class="post-description ">
+			<p id="comment_area">{{ c.comment }}</p>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endif %}
