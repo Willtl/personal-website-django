@@ -7,14 +7,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="favicon.ico">
+<meta name="author" content="Willian Tessaro Lunardi" />
+<meta name="description" content="Personal webpage of Willian Tessaro Lunardi" />
+<meta name="keywords" content="optimization,combinatorial,student,university,luxembourg,website,graduate,willian tessaro lunardi," />
 
 <title>{% get_page_title %}</title>
 
-<!-- Bootstrap core CSS -->
-<link href="{% static 'webcontext/css/bootstrap.min.css' %}"
+<link rel="shortcut icon" type="image/png" href="{% static 'webcontext/images/favicon.png' %}"/> 
+<link href="{% static 'webcontext/css/boot4/bootstrap.css' %}"
 	rel="stylesheet">
 <link href="{% static 'webcontext/css/style.css' %}" rel="stylesheet">
 
@@ -30,7 +30,7 @@
 
 	<div id="content_section" class="container">
 		<div id="post_section" class="jumbotron">
-			<h1>Theme example</h1>
+			<h3>Theme example</h3>
 			<p>This is a template showcasing the optional theme stylesheet
 				included in Bootstrap. Use it as a starting point to create
 				something more unique by building on or modifying it.</p>
@@ -39,7 +39,7 @@
 		<div id="comment_section" class="row">
 			{% if comments %}
 			<div id="comments_header" class="page-header">
-				<h1>Comments</h1>
+				<h3>Comments</h3>
 			</div>
 			{% for c in comments %}
 			<div class="panel panel-white post panel-shadow">
@@ -67,7 +67,7 @@
 	<div class="container">
 		<div id="form_comment" class="row">
 			<div class="page-header">
-				<h1>Add Comments</h1>
+				<h3>Add Comments</h3>
 			</div>
 			<form id="comment_form" method="POST">
 				<input id="page_id" type="hidden" value="{{ current_path }}">
@@ -109,12 +109,10 @@
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src='https://www.google.com/recaptcha/api.js'></script>
-	<script
-		src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
-	<!-- <script src="{% static 'webcontext/js/bootstrap.min.js' %}"></script>  -->
+	<!-- <script
+		src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+	<script src="{% static 'webcontext/js/bootstrap.min.js' %}"></script>
 	<script src="{% static 'webcontext/js/form_comment.js' %}"></script>
-
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 </html>

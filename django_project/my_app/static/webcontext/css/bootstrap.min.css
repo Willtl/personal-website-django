@@ -4558,6 +4558,10 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	overflow-y: auto
 }
 
+.navbar-right {
+	float: right
+}
+
 @media ( min-width :768px) {
 	.navbar-collapse {
 		width: auto;
