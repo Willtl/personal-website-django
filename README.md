@@ -1,7 +1,9 @@
 # my_app_django_boostrap
 
 Comment system with ajax.
+
 ![gif_1](https://thumbs.gfycat.com/HarmfulPhonyHuia-size_restricted.gif)
+___________________
 
 Contact page with recaptcha.
 
