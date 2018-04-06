@@ -1,0 +1,93 @@
+{% load static %} {% load custom_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Willian Tessaro Lunardi" />
+<meta name="description"
+	content="Personal webpage of Willian Tessaro Lunardi" />
+<meta name="keywords"
+	content="optimization,combinatorial,student,university,luxembourg,website,graduate,willian tessaro lunardi," />
+
+<title>{% get_page_title %}</title>
+
+<link rel="shortcut icon" type="image/png"
+	href="{% static 'webcontext/images/favicon.png' %}" />
+<link href="{% static 'webcontext/css/boot4/bootstrap.css' %}"
+	rel="stylesheet">
+<link href="{% static 'webcontext/css/style.css' %}" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body>
+	{% include "webcontext/html_parts/nav.html" %}
+
+	<div class="container py-5" id="content_section" role="main">
+		<div class="text-center">
+			<h2 style="margin-top: 0px;">Registration</h2>
+			<hr
+				style="max-width: 50px; border-width: 3px; border-color: #f05f40;"
+				class="my-4">
+		</div>
+		<div class="main-login main-center">
+			<form class="form-horizontal" method="post" action="#">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text fa fa-user" id="basic-addon1"></span>
+					</div>
+					<input type="text" class="form-control" placeholder="Entire name"
+						aria-label="Entire name" aria-describedby="basic-addon1">
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">@</span>
+					</div>
+					<input type="text" class="form-control" placeholder="Email"
+						aria-label="Email" aria-describedby="basic-addon1">
+				</div> 
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text fa fa-users" id="basic-addon1"></span>
+					</div>
+					<input type="text" class="form-control" placeholder="Username"
+						aria-label="Username" aria-describedby="basic-addon1">
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text fa fa-lock" id="basic-addon1"></span>
+					</div>
+					<input type="text" class="form-control" placeholder="Password"
+						aria-label="Password" aria-describedby="basic-addon1">
+				</div>
+				<button type="button" class="btn btn-primary btn-lg btn-block login-button btn-outline-primary">Primary</button>
+			</form>
+		</div>
+	</div>
+
+	{% include "webcontext/html_parts/footer.html" %}
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script
+		src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+	<script src="{% static 'webcontext/js/bootstrap.min.js' %}"></script>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<script src="{% static 'webcontext/js/form_comment.js' %}"></script>
+</body>
+</html>
