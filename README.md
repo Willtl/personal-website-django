@@ -8,13 +8,13 @@ ___________________
 
 Contact page with recaptcha.
 
-![gif_2](https://thumbs.gfycat.com/FixedRareLadybird-size_restricted.gif)
+![gif_2](https://thumbs.gfycat.com/FixedRareLadybird-max-14mb.gif)
 
 ___________________
 
 Comment system with ajax.
 
-![gif_3](https://thumbs.gfycat.com/HarmfulPhonyHuia-size_restricted.gif)
+![gif_3](https://thumbs.gfycat.com/HarmfulPhonyHuia-max-14mb.gif)
 
 
 
