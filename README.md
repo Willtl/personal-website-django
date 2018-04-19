@@ -2,7 +2,7 @@
 
 Registration system with email confirmation
 
-![gif_1](https://thumbs.gfycat.com/OrderlyNarrowDungbeetle-size_restricted.gif)
+![gif_1](https://thumbs.gfycat.com/OrderlyNarrowDungbeetle-max-14mb.gif)
 
 ___________________
 
