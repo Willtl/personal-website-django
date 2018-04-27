@@ -18,12 +18,8 @@
 				<li {% if page_name == 'research' %}class="nav-item active" {% else %} class="nav-item" {% endif %}><a class="nav-link" href="{% url 'research' %}">Research</a></li>
 				<li {% if page_name == 'code' %}class="nav-item active" {% else %} class="nav-item" {% endif %}><a class="nav-link" href="{% url 'code' %}">Code</a></li>
 				<li {% if page_name == 'contact' %}class="nav-item active" {% else %} class="nav-item" {% endif %}><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>	
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-			</form>
+			</ul> 
+				<a href="{% url 'registration' %}"><button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Register</button></a> 
 		</div>
 		<a class="navbar-brand"></a>
 	</nav>

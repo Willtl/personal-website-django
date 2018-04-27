@@ -1,9 +1,9 @@
 var page_id = $('#page_id').val();
 
 $(document).ready(function() {
-	//$('html, body').animate({
-	//	scrollTop : 0
-	//}, 0, 'swing');
+	// $('html, body').animate({
+	// scrollTop : 0
+	// }, 0, 'swing');
 });
 
 $(document).on('submit', '#comment_form', function(e) {
@@ -14,6 +14,7 @@ $(document).on('submit', '#comment_form', function(e) {
 		console.log('already submitted');
 		e.preventDefault();
 		show_info('You already submited a comment.');
+		clean_form_values();
 	} else {
 		// Validate the email
 		var email = $('#id_atrb_email').val();
@@ -34,15 +35,21 @@ $(document).on('submit', '#comment_form', function(e) {
 					// Disable button
 					disable_element('#button_comment_form');
 					// Clean form values
-					clean_form_values();
+					// clean_form_values();
 					// Hide error messages
 					hide_error();
+					// Smoth scroll to the top
+					if ($("#comments_header").length) {
+						$('html, body').animate({
+							scrollTop : $("#comments_header").offset().top
+						}, 1000);
+					} else {
+						$('html, body').animate({
+							scrollTop : 0
+						}, 1000);
+					}
 					// Update comment section values
 					$('#content_section').load(page_id + ' #content_section > *').fadeIn('slow');
-					// Smoth scroll to the top
-					$('html, body').animate({
-						scrollTop : $("#comments_header").offset().top - $("#comments_header").height()
-					}, 1000);
 					// Enable button
 					enable_element('#button_comment_form');
 				}
