@@ -1,5 +1,7 @@
 # my_app_django_boostrap
 
+Django web application with registration system, contact page with recaptcha, and comment system with ajax. 
+
 Registration system with email confirmation
 
 ![gif_1](https://thumbs.gfycat.com/OrderlyNarrowDungbeetle-size_restricted.gif)
