@@ -1,4 +1,4 @@
-# my_app_django_boostrap
+# DjangoWebApp
 
 Django web application with registration system, contact page with recaptcha, and comment system with ajax. 
 
